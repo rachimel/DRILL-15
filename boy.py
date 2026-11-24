@@ -193,4 +193,5 @@ class Boy:
             self.ball_count += 1
 
         if group == 'boy:zombie':
+            print('이것은 정말 아프다! 좀비에게 쓰러졌습니다.')
             quit()
