@@ -9,16 +9,13 @@ LAUNCH_SPEED_Y = 300.0
 GRAVITY = 9.8 * (10.0 / 0.3)  # 9.8 m/s²를 픽셀/s²로 변환
 GROUND_Y = 40
 
-import os
-path = os.getcwd() + '\\Labs\\LEC17_Collision\\'
-
 class Ball:
     images = {}
 
     def __init__(self, x, y, direction, ball_type=1):
         if ball_type not in Ball.images:
             Ball.images[ball_type] = load_image(
-                path + 'ball21x21.png' if ball_type == 1 else path + 'ball41x41.png')
+                'ball21x21.png' if ball_type == 1 else 'ball41x41.png')
         self.image = Ball.images[ball_type]
         self.x, self.y = x, y
         self.velocity_x = direction * LAUNCH_SPEED_X

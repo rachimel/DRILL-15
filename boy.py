@@ -99,10 +99,10 @@ class Run:
 
 class Boy:
     def __init__(self):
-        self.font = load_font(path + 'ENCR10B.TTF', 16)
+        self.font = load_font('ENCR10B.TTF', 16)
         self.x, self.y = 400, 90
         self.frame = 0
-        self.image = load_image(path + 'animation_sheet.png')
+        self.image = load_image('animation_sheet.png')
         self.idle_started_at = get_time()
         self.dir = 0
         self.face_dir = 1

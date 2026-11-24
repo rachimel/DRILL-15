@@ -1,12 +1,9 @@
 from pico2d import *
 
-import os
-path = os.getcwd() + '\\Labs\\LEC16_Time\\'
-
 class Grass:
     def __init__(self):
-        self.image = load_image(path + 'grass.png')
-        self.ruler_image = load_image(path + 'ruler.png')
+        self.image = load_image('grass.png')
+        self.ruler_image = load_image('ruler.png')
 
     def update(self):
         pass

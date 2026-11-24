@@ -29,7 +29,7 @@ class Zombie:
     def load_images(self):
         if Zombie.images is None:
             Zombie.images = {
-                'Walk': [load_image(path + f'./zombie/Walk ({i}).png') for i in range(1, 11)]
+                'Walk': [load_image(f'./zombie/Walk ({i}).png') for i in range(1, 11)]
             }
 
     def __init__(self):
