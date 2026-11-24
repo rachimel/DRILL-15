@@ -5,14 +5,12 @@ from boy import Boy
 from grass import Grass
 from ball import Ball
 from zombie import Zombie
+from zombie import zombies
 import random
 
 boy = None
 
-
 def handle_events():
-
-
     event_list = get_events()
     for event in event_list:
         if event.type == SDL_QUIT:
@@ -43,12 +41,11 @@ def init():
     game_world.add_collision_pair("boy:zombie",boy,None)
 
     for ball in balls:
-        game_world. add_collision_pair("boy:ball", None,ball)
-        game_world.add_collision_pair("ball:zombie",ball, None)
+        game_world.add_collision_pair("boy:ball",None, ball)
 
     for zombie in zombies:
-        game_world.add_collision_pair("ball:zombie",None, zombie)
         game_world.add_collision_pair("boy:zombie",None, zombie)
+
 
 def pause():
     boy.pause()

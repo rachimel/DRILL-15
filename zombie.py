@@ -6,7 +6,8 @@ import game_framework
 import game_world
 
 import os
-path = os.getcwd() + '\\Labs\\LEC17_Collision\\'
+
+zombies = []
 
 # 좀비 달리기 속력: km/h -> 픽셀/초
 PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 30 cm
@@ -63,4 +64,7 @@ class Zombie:
         return self.x - half_size, self.y - half_size, self.x + half_size, self.y + half_size
 
     def handle_collision(self, group, other):
-        pass
+        if group == "ball:zombie":
+            self.hp -= 1
+            if self.hp == 0:
+                game_world.remove_object(self)
