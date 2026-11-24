@@ -65,6 +65,6 @@ class Zombie:
         if group == "ball:zombie":
             self.hp -= 1
             self.size = self.size // 2
-            self.y -= self.size
+            self.y -= self.size // 2
             if self.hp == 0:
                 game_world.remove_object(self)
