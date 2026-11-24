@@ -11,7 +11,6 @@ from ball import Ball
 
 import game_framework
 
-from zombie import zombies
 # 달리기 속력을 시속 km에서 초속 m, 다시 초당 픽셀로 변환한다.
 PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 30 cm
 RUN_SPEED_KMPH = 20.0  # Km / Hour
@@ -140,6 +139,7 @@ class Boy:
         self.states['RUN'].enter(self)
 
     def fire_ball(self):
+        global zombies
         if self.item is None or self.ball_count <= 0:
             return
         self.ball_count -= 1
@@ -147,10 +147,6 @@ class Boy:
                     1 if self.item == 'Ball' else 2)
         game_world.add_oject(ball)
         game_world.add_collision_pair("ball:zombie", ball ,None)
-
-        for zombie in zombies:
-            game_world.add_collision_pair("ball:zombie",None, zombie)
-
     def pause(self):
         self.pressed_keys.clear()
         if self.state == 'RUN':

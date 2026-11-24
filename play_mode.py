@@ -5,7 +5,6 @@ from boy import Boy
 from grass import Grass
 from ball import Ball
 from zombie import Zombie
-from zombie import zombies
 import random
 
 boy = None
@@ -23,7 +22,7 @@ def handle_events():
 
 
 def init():
-    global boy, balls, grass
+    global boy, balls, grass, zombies
 
     boy = Boy()
     game_world.add_oject(boy)
@@ -45,6 +44,7 @@ def init():
 
     for zombie in zombies:
         game_world.add_collision_pair("boy:zombie",None, zombie)
+        game_world.add_collision_pair("ball:zombie",None, zombie)
 
 
 def pause():

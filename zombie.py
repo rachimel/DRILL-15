@@ -7,8 +7,6 @@ import game_world
 
 import os
 
-zombies = []
-
 # 좀비 달리기 속력: km/h -> 픽셀/초
 PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 30 cm
 RUN_SPEED_KMPH = 10.0  # Km / Hour
@@ -66,5 +64,7 @@ class Zombie:
     def handle_collision(self, group, other):
         if group == "ball:zombie":
             self.hp -= 1
+            self.size = self.size // 2
+            self.y -= self.size
             if self.hp == 0:
                 game_world.remove_object(self)
